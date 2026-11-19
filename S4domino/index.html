@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Torneo de Dominó Aragua</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <span class="logo">Dominó Aragua</span>
+      <a href="index.html#inicio">Inicio</a>
+      <a href="index.html#que-es">Qué es</a>
+      <a href="index.html#fecha">Fecha</a>
+      <a href="index.html#modalidad">Modalidad</a>
+      <a href="index.html#video">Video</a>
+      <a href="index.html#efecto-domino">Efecto dominó</a>
+      <a href="index.html#inscripcion">Inscripción</a>
+      <a href="reglas.html">Reglas</a>
+      <a href="premios.html">Premios</a>
+      <a href="galeria.html">Galería</a>
+    </nav>
+  </header>
+
+  <div class="carrusel" id="inicio">
+    <img class="activa" src="img/slide1.webp" alt="Fichas de dominó en fila con el nombre del torneo">
+    <img src="img/slide2.webp" alt="Fichas de dominó regadas sobre una mesa verde">
+    <img src="img/slide3.webp" alt="Fichas de dominó cayendo en cadena">
+    <button id="anterior">&#10094;</button>
+    <button id="siguiente">&#10095;</button>
+  </div>
+
+  <main>
+
+  <section id="que-es">
+    <div class="fila">
+        <img src="img/que-es.webp" alt="Tres fichas de dominó dobles">
+        <div>
+          <h2>¿Qué es el Torneo de Dominó Aragua?</h2>
+          <p>Es un torneo de dominó por parejas para aficionados de todas las edades. La idea es pasar un día de juego sano, conocer gente nueva y competir por la Copa Aragua. Este torneo es ficticio y se creó como proyecto de la universidad.</p>
+        </div>
+    </div>
+  </section>
+
+  <section id="fecha">
+    <div class="fila">
+        <div>
+          <h2>Fecha y lugar</h2>
+          <p>El torneo se realiza el sábado 14 de noviembre de 2026 en el Salón de Eventos Los Dominó (lugar ficticio), en Aragua. Las mesas abren a las 8:00 de la mañana.</p>
+        </div>
+        <img src="img/fecha.webp" alt="Fecha del torneo: 14 de noviembre de 2026">
+    </div>
+  </section>
+
+  <section id="modalidad">
+    <div class="fila">
+        <img src="img/modalidad.webp" alt="Mesa de dominó con cuatro jugadores">
+        <div>
+          <h2>Modalidad</h2>
+          <p>Se juega por parejas en mesas de cuatro personas. Cada jugador recibe 7 fichas y gana la pareja que primero llegue a 100 puntos. Pueden inscribirse hasta 32 parejas.</p>
+        </div>
+    </div>
+  </section>
+
+  <section id="video">
+    <div class="fila">
+        <video controls poster="img/poster-video.webp">
+          <source src="video/domino.webm" type="video/webm">
+          <source src="video/domino.mp4" type="video/mp4">
+          Tu navegador no soporta video.
+        </video>
+        <div>
+          <h2>Así se juega</h2>
+          <p>Mira este video corto: una fila de fichas cae una detrás de otra. Así de emocionante es una buena partida.</p>
+        </div>
+    </div>
+  </section>
+
+  <section id="efecto-domino">
+    <h2>Efecto dominó</h2>
+    <p>Así arranca una buena partida: una sola ficha cae y tumba a la siguiente, hasta que toda la fila queda en el suelo. Pasa el mouse sobre la mesa para pausar la animación.</p>
+    <div class="escena" role="img" aria-label="Animación de una fila de fichas de dominó que caen una tras otra">
+      <div class="ficha" style="--i:0"><span class="p6"></span><span class="p6"></span></div>
+      <div class="ficha" style="--i:1"><span class="p5"></span><span class="p4"></span></div>
+      <div class="ficha" style="--i:2"><span class="p3"></span><span class="p2"></span></div>
+      <div class="ficha" style="--i:3"><span class="p6"></span><span class="p1"></span></div>
+      <div class="ficha" style="--i:4"><span class="p4"></span><span class="p4"></span></div>
+      <div class="ficha" style="--i:5"><span class="p5"></span><span class="p2"></span></div>
+      <div class="ficha" style="--i:6"><span class="p3"></span><span class="p1"></span></div>
+      <div class="ficha" style="--i:7"><span class="p6"></span><span class="p3"></span></div>
+    </div>
+  </section>
+
+  <section id="inscripcion">
+    <h2>Inscripción</h2>
+    <p>Llena el formulario para inscribirte. En el mensaje escribe el nombre de tu pareja.</p>
+    <form id="registro">
+      <label for="nombre">Nombre y apellido</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="mensaje">Mensaje</label>
+      <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+
+      <button class="enviar" type="submit">Inscribirme</button>
+      <p id="respuesta"></p>
+    </form>
+  </section>
+  </main>
+
+  <footer>
+    <img src="img/uba_logo.jpg" alt="Logo de la Universidad Bicentenaria de Aragua" width="70" height="70">
+    <p><strong>Universidad Bicentenaria de Aragua</strong></p>
+    <p>Facultad de Ciencias Jurídicas y Políticas · Escuela de Ingeniería de Sistemas</p>
+    <p>Entornos Web · Prof. Jackson Pérez</p>
+    <p>Gabriel Rojas · C.I. 30.459.550</p>
+    <p>&copy; 2026 Todos los derechos reservados. Torneo ficticio con fines académicos.</p>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

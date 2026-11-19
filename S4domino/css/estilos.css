@@ -1,0 +1,151 @@
+@font-face { font-family: "Poppins"; font-weight: 400; src: url("../fonts/poppins-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 700; src: url("../fonts/poppins-latin-700-normal.woff2") format("woff2"); }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Poppins", Arial, sans-serif;
+  background-color: #f7f1e0;
+  color: #222222;
+  line-height: 1.6;
+}
+
+img, video { max-width: 100%; height: auto; }
+
+/* Menu de navegacion */
+header { background-color: #12462a; padding: 12px 20px; position: sticky; top: 0; z-index: 100; }
+nav { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+nav .logo { color: #e6b43c; font-weight: 700; font-size: 20px; margin-right: auto; }
+nav a { color: #f7f1e0; text-decoration: none; }
+nav a { font-size: 15px; transition: color 0.3s; }
+nav a:hover { color: #e6b43c; }
+
+/* Carrusel */
+.carrusel { position: relative; max-width: 1000px; margin: 20px auto; }
+.carrusel img { width: 100%; display: none; border-radius: 8px; }
+.carrusel img.activa { display: block; }
+.carrusel button {
+  position: absolute; top: 45%;
+  background-color: #12462a; color: white;
+  border: none; font-size: 22px; padding: 8px 14px; cursor: pointer;
+}
+#anterior { left: 0; }
+#siguiente { right: 0; }
+
+/* Secciones */
+section { max-width: 900px; margin: 0 auto; padding: 30px 20px; }
+section h2 { color: #12462a; }
+.fila { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; }
+.fila img, .fila video { width: 380px; border-radius: 8px; }
+.fila div { flex: 1; min-width: 260px; }
+.titulo { text-align: center; padding: 30px 20px 0; }
+.titulo h1 { color: #12462a; }
+
+/* Formulario */
+form { background-color: #12462a; color: white; padding: 20px; border-radius: 8px; }
+label { display: block; margin-top: 12px; }
+input, textarea { width: 100%; padding: 8px; margin-top: 4px; box-sizing: border-box; font-family: inherit; }
+button.enviar { margin-top: 16px; background-color: #e6b43c; border: none; padding: 10px 24px; font-weight: 700; cursor: pointer; }
+
+/* Footer */
+footer { background-color: #12462a; color: #f7f1e0; text-align: center; padding: 20px; margin-top: 30px; font-size: 14px; }
+footer p { margin: 4px 0; }
+footer img { display: block; margin: 0 auto 8px; }
+
+/* Sumativa 3: efectos */
+/* La seccion no queda tapada por el menu fijo */
+.carrusel, section { scroll-margin-top: 70px; }
+
+/* Titulos: cambian de color y crecen suavemente */
+section h2, .titulo h1 {
+  transition: color 0.5s ease, font-size 0.5s ease;
+  font-size: 1.5rem;
+}
+.titulo h1 { font-size: 2rem; }
+section h2:hover { color: #b07d12; font-size: 1.9rem; }
+.titulo h1:hover { color: #b07d12; font-size: 2.5rem; }
+
+/* Imagenes: efecto marco al pasar el mouse */
+.fila img, .carrusel img {
+  outline: 4px solid transparent;
+  outline-offset: 0;
+  transition: outline-color 0.4s ease, outline-offset 0.4s ease, transform 0.4s ease;
+}
+.fila img:hover, .carrusel img:hover {
+  outline-color: #e6b43c;
+  outline-offset: 8px;
+  transform: scale(1.03);
+}
+
+/* Sumativa 4: animacion CSS3 "Efecto dominó" (solo CSS, sin JavaScript) */
+.escena {
+  --pip: #12462a;
+  --tl: radial-gradient(circle at 28% 28%, var(--pip) 0.2em, transparent 0.23em);
+  --tr: radial-gradient(circle at 72% 28%, var(--pip) 0.2em, transparent 0.23em);
+  --ml: radial-gradient(circle at 28% 50%, var(--pip) 0.2em, transparent 0.23em);
+  --mr: radial-gradient(circle at 72% 50%, var(--pip) 0.2em, transparent 0.23em);
+  --bl: radial-gradient(circle at 28% 72%, var(--pip) 0.2em, transparent 0.23em);
+  --br: radial-gradient(circle at 72% 72%, var(--pip) 0.2em, transparent 0.23em);
+  --c: radial-gradient(circle at 50% 50%, var(--pip) 0.2em, transparent 0.23em);
+
+  font-size: min(20px, 2.4vw);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1.5em;
+  padding: 2em 5em 1.5em 1.5em;
+  background: linear-gradient(#1c6b40, #12462a);
+  border-bottom: 0.5em solid #e6b43c;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.ficha {
+  width: 2.3em;
+  height: 4.6em;
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f1e0;
+  border: 0.1em solid #b07d12;
+  border-radius: 0.3em;
+  box-sizing: border-box;
+  transform-origin: bottom right;
+  filter: drop-shadow(0.2em 0.1em 0.2em rgba(0, 0, 0, 0.45));
+  animation: caer 10s infinite;
+  animation-delay: calc(var(--i) * 0.42s);
+  --giro: 19deg;
+}
+.ficha:last-child { --giro: 80deg; }
+
+/* Linea que divide las dos mitades de la ficha */
+.ficha span { flex: 1; }
+.ficha span:first-child { border-bottom: 0.1em solid #b07d12; }
+
+/* Puntos de cada mitad (1 a 6) */
+.p1 { background: var(--c); }
+.p2 { background: var(--tl), var(--br); }
+.p3 { background: var(--tl), var(--c), var(--br); }
+.p4 { background: var(--tl), var(--tr), var(--bl), var(--br); }
+.p5 { background: var(--tl), var(--tr), var(--c), var(--bl), var(--br); }
+.p6 { background: var(--tl), var(--tr), var(--ml), var(--mr), var(--bl), var(--br); }
+
+@keyframes caer {
+  0%, 8%   { transform: rotate(0deg); animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45); }
+  13%, 45% { transform: rotate(var(--giro)); animation-timing-function: ease-out; }
+  62%, 100% { transform: rotate(0deg); }
+}
+
+/* Pausar al pasar el mouse */
+.escena:hover .ficha { animation-play-state: paused; }
+
+/* Respeta a quien prefiere menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .ficha { animation: none; }
+}
+
+@media (max-width: 600px) {
+  nav a { font-size: 13px; }
+  nav .logo { width: 100%; }
+  .carrusel, section { scroll-margin-top: 110px; }
+}
